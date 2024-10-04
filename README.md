@@ -14,6 +14,13 @@ Programų paleidimo žingsiniai(įsijungus dosbox):
 
 (xxx - programos pavadinimas)
 
+---
+### 1_uzd.asm
+Programa, kuri atspausdina įvestoje simbolių eilutėje rastų mažųjų raidžių skaičių. 
+
+Paleidimao pvz.: 1_uzd
+
+(paspaudus enter rašomi visokie simboliai): abs 54d2 ASD
 
 ---
 ### 2uzd.asm 
@@ -54,6 +61,15 @@ Steps for running the programs (when dosbox is open):
 3. xxx
 
 (where xxx is the name of the program)
+
+---
+### 1_uzd.asm
+This program counts the amount of lower case letters in an input and prints this number. 
+
+Exampele of running this program: 1_uzd
+
+(after pressing enter you may enter symbols): abs 54d2ASD
+
 
 ---
 ### 2uzd.asm
