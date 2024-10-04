@@ -6,6 +6,8 @@
 .data
     endl db 0dh, 0ah, 24h
     buff db 255, ?, 255 dup(?)
+    counter dw 0
+    counterAscii db 6 dup('$')
 .code
 
 start:
@@ -31,16 +33,34 @@ start:
         cmp al, 'z'
         ja nope
 
-    
+        push ax
+        mov ax, [counter]
+        inc ax
+        mov [counter], ax
+        pop ax
 
         nope:
-        mov [bx], al
+        inc bx
     loop l
-    mov ah, 40h
-    mov bx, 1
+
+    mov ax, [counter]
+    mov di, offset counterAscii + 5
     xor cx, cx
-    mov cl, [buff+1]
-    mov dx, offset buff+2
+    convertToAscii:
+        xor dx, dx
+        mov bx, 10
+        div bx
+
+        add dl, '0'
+        dec di
+        mov [di],dl
+        inc cx
+
+        cmp ax, 0
+        jne convertToAscii
+
+    mov ah, 9
+    mov dx, di
     int 21h
 
     mov ax, 04C00h
